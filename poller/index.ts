@@ -2,8 +2,8 @@ if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach
 const defaultOptions: MutationObserverInit = { childList: true, subtree: true, attributes: true, characterData: true };
 export const Observer: typeof MutationObserver = window.MutationObserver || (window as any).WebKitMutationObserver;
 
-export function waitForElement<ElementType extends Element>(selector: string, callback: (elements: NodeListOf<ElementType>) => any, options?: WaitFormElementOptions): void; // eslint-disable-line prettier/prettier
-export function waitForElement<Callback extends ObserverFn>(selector: Callback, callback: (elements: ReturnType<Callback>) => any, options?: WaitFormElementOptions): void; // eslint-disable-line prettier/prettier
+export function waitForElement<ElementType extends Element>(selector: string, callback: (elements: NodeListOf<ElementType>) => any, options?: WaitFormElementOptions): MutationObserver | undefined; // eslint-disable-line prettier/prettier
+export function waitForElement<Callback extends ObserverFn>(selector: Callback, callback: (elements: ReturnType<Callback>) => any, options?: WaitFormElementOptions): MutationObserver | undefined; // eslint-disable-line prettier/prettier
 export function waitForElement<ElementType extends Element, Callback extends ObserverFn>(
   selector: string | Callback,
   callback: (elements: NodeListOf<ElementType> | ReturnType<Callback>) => any,
@@ -27,6 +27,7 @@ export function waitForElement<ElementType extends Element, Callback extends Obs
     observer = new Observer(observerFn);
     observer.observe(container, options);
     observerFn([]);
+    return observer;
   }
 }
 
