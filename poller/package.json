@@ -1,0 +1,11 @@
+{
+  "name": "@conversiondev/poller",
+  "version": "2.2.0",
+  "description": "DOM element polling function to wait for element to be present on the page",
+  "author": "LaurynasGr",
+  "main": "index.ts",
+  "license": "ISC",
+  "scripts": {
+    "upload": "npm publish --access public"
+  }
+}

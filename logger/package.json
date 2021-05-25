@@ -1,0 +1,11 @@
+{
+  "name": "@conversiondev/logger",
+  "version": "2.2.1",
+  "description": "Silent logging function",
+  "author": "LaurynasGr",
+  "main": "index.ts",
+  "license": "ISC",
+  "scripts": {
+    "upload": "npm publish --access public"
+  }
+}

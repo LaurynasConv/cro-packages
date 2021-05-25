@@ -1,0 +1,11 @@
+{
+  "name": "@conversiondev/polyfill",
+  "version": "2.0.0",
+  "description": "Closest, Matches & ForEach JS polyfills",
+  "author": "LaurynasGr",
+  "main": "index.ts",
+  "license": "ISC",
+  "scripts": {
+    "upload": "npm publish --access public"
+  }
+}
