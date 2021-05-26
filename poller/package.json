@@ -1,6 +1,6 @@
 {
   "name": "@conversiondev/poller",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "DOM element polling function to wait for element to be present on the page",
   "author": "LaurynasGr",
   "main": "index.ts",
