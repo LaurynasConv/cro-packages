@@ -1,6 +1,6 @@
 {
   "name": "@conversiondev/logger",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "Silent logging function",
   "author": "LaurynasGr",
   "main": "index.ts",
