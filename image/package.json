@@ -1,6 +1,6 @@
 {
   "name": "@conversiondev/image",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "<picture> renderer with 1x & 3x, webp & png sources",
   "author": "LaurynasGr",
   "main": "index.ts",
