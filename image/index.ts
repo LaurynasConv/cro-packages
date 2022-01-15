@@ -3,11 +3,11 @@ export const image = {
   setup: (src: string) => {
     image.src = src;
   },
-  render: ({ path = '', alt, className, picClassName, width }: PictureOptions, ...sources: Image[]) => {
+  render: ({ path = '', alt, className, picClassName, width, type = 'png' }: PictureOptions, ...sources: Image[]) => {
     const renderSource = ({ src, media, path: imgPath = '' }: Image) => {
       const query = media ? `media="(min-width: ${media}px)"` : '';
       const webp = `${path}${imgPath}/webp/${src}.webp`;
-      const fallback = `${path}${imgPath}/${src}.png`;
+      const fallback = `${path}${imgPath}/${src}.${type}`;
 
       return /* html */ `
         <source
@@ -16,8 +16,8 @@ export const image = {
           ${query}
         />
         <source
-          srcset="${image.src}/1x${fallback} 1x, ${image.src}/1x${fallback} 1.5x"
-          type="image/png"
+          srcset="${image.src}/1x${fallback} 1x, ${image.src}/3x${fallback} 1.5x"
+          type="image/${type}"
           ${query}
         />
       `;
@@ -28,7 +28,7 @@ export const image = {
       <picture ${picClassName ? ` class="${picClassName}"` : ''}>
         ${sources.map(renderSource).join('')}
         <img
-          src="${image.src}/1x${path}${lastImage.path || ''}/${lastImage.src}.png"
+          src="${image.src}/1x${path}${lastImage.path || ''}/${lastImage.src}.${type}"
           ${className ? `class="${className}"` : ''}
           ${alt ? `alt="${alt}"` : ''}
           ${width ? `width="${width}"` : ''}
@@ -50,4 +50,5 @@ export interface PictureOptions {
   className?: string;
   picClassName?: string;
   width?: number;
+  type?: 'png' | 'jpeg';
 }
